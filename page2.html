@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <style>
+         #generateresume:hover{
+            background-color: rgb(60, 183, 60);
+            z-index: 5;
+        }
+        #generateresume {
+            margin-top: 20px;
+            background-color: green;
+            padding: 4px;
+            border-radius: 5px;
+            border: 2px solid black
+        }
+
+        #nextbtn:hover {
+            background-color: rgb(207, 25, 25);
+        }
+
+        #prebtn:hover {
+            background-color: rgb(207, 25, 25);
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="m-5 px-2">
+        <nav class="flex justify-center">
+            <div class="text-3xl font-extrabold uppercase">
+                Resume<span class="text-yellowColor">Generator</span>
+            </div>
+            <div class="hidden absolute top-0 left-0 w-full py-10 text-center
+         md:block md:static md:py-0 md:ml-auto md:w-auto md:border-none bg-white" id="nav-menu">
+                <ul class="mt-0 font-semibold
+        flex flex-col text-center gap-5 md:flex-row">
+                    <li class="mr-5 text-yellowColor"><a class="nav__link" href="#">Login</a></li>
+                    <li><a class="nav__link hover:text-yellowColor" href="#">Create Account</a></li>
+                    <div class="absolute top-[0.7rem] right-4 text-2xl cursor-pointer md:hidden" id="nav-close">
+                        <i class="ri-close-large-line"></i>
+                    </div>
+                </ul>
+            </div>
+            <div id="menu" class="mt-2 pl-4">
+                <i class="ri-menu-2-line cursor-pointer text-2xl md:hidden"></i>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <hr class="bg-yellowColor md:full h-1  lg:w-full lg:ml-0">
+
+    <main>
+        <section>
+            <h1 class="uppercase text-xl font-medium text-center mt-4">Education Details</h1>
+            <form id="resumeform2">
+                <div class="flex justify-center">
+                    <ul class="mt-6 space-y-4">
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-80 py-1 px-2 placeholder-gray-800"
+                                type="text" name="College" placeholder="College University*" required id="College">
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-full py-1 px-2 placeholder-gray-800"
+                                type="date" name="dateyear" placeholder="dd-mm-yyyy" required id="year1">
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-80 py-1 px-2 placeholder-gray-800"
+                                type="text" name="Qualification" placeholder="Qualification*" required
+                                id="Qualification">
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-80 py-1 px-2 placeholder-gray-800"
+                                type="text" name="Description" placeholder="Description*" required id="Description">
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-full py-1 px-2 placeholder-gray-800"
+                                type="text" name="school" placeholder="School*" required id="school">
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-full py-1 px-2 placeholder-gray-800"
+                                type="date" name="dateyear" placeholder="dd-mm-yyyy" required id="year2">
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-80 py-1 px-2 placeholder-gray-800"
+                                type="text" name="qualification" placeholder="Qualification*" required
+                                id="qualification">
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-80 py-1 px-2 placeholder-gray-800"
+                                type="text" name="description" placeholder="Description*" required id="description">
+                        </li>
+                    </ul>
+                </div>
+                <button class="block mx-auto" type="submit" id="generateresume">Generate Resume</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="flex justify-around mt-5">
+            <button class="rounded-md bg-red-400 px-3 py-1 uppercase z-10" id="prebtn">back</button>
+            <button class="rounded-md bg-red-400 px-3 py-1 uppercase z-10" id="nextbtn">next</button>
+        </div>
+
+        <p class="text-center text-gray-500">Page 2</p>
+    </footer>
+
+<script>
+// Responsive Menu Button
+const menu = document.getElementById('menu');
+const navMenu = document.getElementById('nav-menu');
+const closeIcon = document.getElementById('nav-close');
+const navLink = document.querySelectorAll(".nav__link");
+
+navLink.forEach(link => link.addEventListener("click", () => {
+    navMenu.classList.add('hidden');
+}));
+
+closeIcon.addEventListener("click", () => {
+    navMenu.classList.add('hidden');
+});
+
+menu.addEventListener("click", () => {
+    navMenu.classList.remove('hidden');
+});
+
+// Page Navigation Link
+const previousPage = "page1.html";
+const nextPage = "page3.html";
+
+document.getElementById("prebtn").addEventListener("click", function () {
+    window.location.href = previousPage;
+});
+
+document.getElementById("nextbtn").addEventListener("click", function () {
+    // Check if localStorage items are set
+    if (localStorage.getItem('College') && localStorage.getItem('Qualification')) {
+        window.location.href = nextPage;
+    } else {
+        alert("Please fill in all required fields before proceeding.");
+    }
+});
+
+// Add event listener to the form submission
+document.getElementById('resumeform2').addEventListener('submit', function (event) {
+    event.preventDefault();  // Prevent form submission
+
+    // Get form values
+    const College = document.getElementById('College').value;
+    const year1 = document.getElementById('year1').value;
+    const Qualification = document.getElementById('Qualification').value;
+    const Description = document.getElementById('Description').value;
+    const school = document.getElementById('school').value;
+    const year2 = document.getElementById('year2').value;
+    const qualification = document.getElementById('qualification').value;
+    const description = document.getElementById('description').value;
+
+    // Save to localStorage
+    localStorage.setItem('College', College);
+    localStorage.setItem('year1', year1);
+    localStorage.setItem('Qualification', Qualification);
+    localStorage.setItem('Description', Description);
+    localStorage.setItem('school', school);
+    localStorage.setItem('year2', year2);
+    localStorage.setItem('qualification', qualification);
+    localStorage.setItem('description', description);
+});
+</script>
+
+
+
+</body>
+
+</html>

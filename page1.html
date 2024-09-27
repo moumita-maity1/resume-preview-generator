@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        #generateresume {
+            margin-top: 20px;
+            background-color: green;
+            padding: 4px;
+            border-radius: 5px;
+            border: 2px solid black
+        }
+        #generateresume:hover{
+            background-color: rgb(60, 183, 60);
+            z-index: 5;
+        }
+        #nextbtn:hover {
+            background-color: rgb(207, 25, 25);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="m-5 px-2">
+        <nav class="flex justify-center">
+            <div class="text-3xl font-extrabold uppercase">
+                Resume<span class="text-yellowColor">Generator</span>
+            </div>
+            <div class="hidden absolute top-0 left-0 w-full py-10 text-center
+         md:block md:static md:py-0 md:ml-auto md:w-auto md:border-none bg-white" id="nav-menu">
+                <ul class="mt-0 font-semibold
+        flex flex-col text-center gap-5 md:flex-row">
+                    <li class="mr-5 text-yellowColor"><a class="nav__link" href="#">Login</a></li>
+                    <li><a class="nav__link hover:text-yellowColor" href="#">Create Account</a></li>
+                    <div class="absolute top-[0.7rem] right-4 text-2xl cursor-pointer md:hidden" id="nav-close">
+                        <i class="ri-close-large-line"></i>
+                    </div>
+                </ul>
+            </div>
+            <div id="menu" class="mt-2 pl-4">
+                <i class="ri-menu-2-line cursor-pointer text-2xl md:hidden"></i>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <hr class="bg-yellowColor md:full h-1  lg:w-full lg:ml-0">
+
+    <main>
+        <section>
+            <h1 class="uppercase text-xl font-medium text-center mt-4">Personal Details</h1>
+            <div class="flex justify-center">
+                <form id="resumeform1">
+                    <ul class="mt-6 space-y-4">
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-80 py-1 px-2 placeholder-gray-800"
+                                type="text" name="firstname" id="fname" placeholder="First Name*" required>
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-full py-1 px-2 placeholder-gray-800"
+                                type="text" name="lastname" placeholder="Last Name*" required id="lname">
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-full py-1 px-2 placeholder-gray-800"
+                                type="email" name="email" placeholder="Email*" required id="email">
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-full py-1 px-2 placeholder-gray-800"
+                                type="text" name="phonenumber" placeholder="Phone Number*" required id="phonenumber">
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-full py-1 px-2 placeholder-gray-800"
+                                type="url" name="website" placeholder="Your Website" id="website" required>
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-full py-1 px-2 placeholder-gray-800"
+                                type="url" name="github" placeholder="Github" id="github" required>
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-full py-1 px-2 placeholder-gray-800"
+                                type="url" name="linkedin" placeholder="Linkedin" id="linkedin" required>
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-full py-1 px-2 placeholder-gray-800"
+                                type="url" name="Twitter" placeholder="Twitter" id="twitter" required>
+                        </li>
+                    </ul>
+                    <button class="block mx-auto" type="submit" id="generateresume">Generate Resume</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="flex justify-around mt-5">
+            <button class="rounded-md bg-gray-400 px-3 py-1 uppercase z-10" id="prebtn">back</button>
+            <button class="rounded-md bg-red-400 px-3 py-1 uppercase z-10" id="nextbtn">next</button>
+        </div>
+
+        <p class="text-center text-gray-500">Page 1</p>
+    </footer>
+
+    <script>
+
+
+// Responsive Menu Button
+const menu = document.getElementById('menu');
+const navMenu = document.getElementById('nav-menu');
+const closeIcon = document.getElementById('nav-close');
+const navLink = document.querySelectorAll(".nav__link");
+
+navLink.forEach(link => link.addEventListener("click", () => {
+    navMenu.classList.add('hidden');
+}));
+
+closeIcon.addEventListener("click", () => {
+    navMenu.classList.add('hidden');
+});
+
+menu.addEventListener("click", () => {
+    navMenu.classList.remove('hidden');
+});
+
+// Page Navigation Link
+const previousPage = "page1.html";
+const nextPage = "page2.html";
+
+document.getElementById("prebtn").addEventListener("click", function () {
+    window.location.href = previousPage;
+});
+
+document.getElementById("nextbtn").addEventListener("click", function () {
+    // Check if localStorage items are set
+    if (localStorage.getItem('fname') && localStorage.getItem('lname')) {
+        window.location.href = nextPage;
+    } else {
+        alert("Please fill in all required fields before proceeding.");
+    }
+});
+
+// Add event listener to the form submission
+document.getElementById('resumeform1').addEventListener('submit', function (event) {
+    event.preventDefault();  // Prevent form submission
+
+    // Get form values
+    const fname = document.getElementById('fname').value;
+    const lname = document.getElementById('lname').value;
+    const email = document.getElementById('email').value;
+    const phonenumber = document.getElementById('phonenumber').value;
+    const website = document.getElementById('website').value;
+    const github = document.getElementById('github').value;
+    const linkedin = document.getElementById('linkedin').value;
+    const twitter = document.getElementById('twitter').value;
+
+    // Save to localStorage
+    localStorage.setItem('fname', fname);
+    localStorage.setItem('lname', lname);
+    localStorage.setItem('email', email);
+    localStorage.setItem('phonenumber', phonenumber);
+    localStorage.setItem('website', website);
+    localStorage.setItem('github', github);
+    localStorage.setItem('linkedin', linkedin);
+    localStorage.setItem('twitter', twitter);
+});
+</script>
+
+</body>
+
+</html>

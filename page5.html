@@ -1,0 +1,505 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        #parapreview{
+            color: #817b7b;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        #generateresume {
+            margin-top: 20px;
+            background-color: green;
+            padding: 4px;
+            border-radius: 5px;
+            border: 2px solid black
+        }
+        #generateresume:hover{
+            background-color: rgb(60, 183, 60);
+            z-index: 5;
+        }
+        #resutemph1 {
+            color: #817b7b;
+        }
+
+        #download-btn {
+            background-color: rgb(57, 57, 211);
+            color: white;
+        }
+
+        #nextbtn:hover {
+            background-color: rgb(207, 25, 25);
+        }
+
+        #prebtn:hover {
+            background-color: rgb(207, 25, 25);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="m-5 px-2">
+        <nav class="flex justify-center">
+            <div class="text-3xl font-extrabold uppercase">
+                Resume<span class="text-yellowColor">Generator</span>
+            </div>
+            <div class="hidden absolute top-0 left-0 w-full py-10 text-center
+         md:block md:static md:py-0 md:ml-auto md:w-auto md:border-none bg-white" id="nav-menu">
+                <ul class="mt-0 font-semibold
+        flex flex-col text-center gap-5 md:flex-row">
+                    <li class="mr-5 text-yellowColor"><a class="nav__link" href="#">Login</a></li>
+                    <li><a class="nav__link hover:text-yellowColor" href="#">Create Account</a></li>
+                    <div class="absolute top-[0.7rem] right-4 text-2xl cursor-pointer md:hidden" id="nav-close">
+                        <i class="ri-close-large-line"></i>
+                    </div>
+                </ul>
+            </div>
+            <div id="menu" class="mt-2 pl-4">
+                <i class="ri-menu-2-line cursor-pointer text-2xl md:hidden"></i>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <hr class="bg-yellowColor md:full h-1  lg:w-full lg:ml-0">
+
+    <main>
+        <section>
+            <h1 class="uppercase text-xl font-medium text-center mt-4">Extra Details</h1>
+            <h1 class="uppercase text-sm font-medium text-center mt-4"><i
+                    class="ri-checkbox-circle-fill text-black"></i>Skills/Languages</h1>
+
+            <form id="resumeform5">
+                <div class="flex justify-center">
+                    <ul class="mt-6 space-y-4">
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-80 py-1 px-2 placeholder-gray-800"
+                                type="text" name="skill1" placeholder="Skill 1" required id="skill1">
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-full py-1 px-2 placeholder-gray-800"
+                                type="text" name="skill2" placeholder="Skill 2" required id="skill2">
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-full py-1 px-2 placeholder-gray-800"
+                                type="text" name="skill3" placeholder="Skill 3" required id="skill3">
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-full py-1 px-2 placeholder-gray-800"
+                                type="text" name="skill4" placeholder="Skill 4" required id="skill4">
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-full py-1 px-2 placeholder-gray-800"
+                                type="text" name="skill5" placeholder="Skill 5" required id="skill5">
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-full py-1 px-2 placeholder-gray-800"
+                                type="text" name="skill6" placeholder="Skill 6" required id="skill6">
+                        </li>
+                    </ul>
+
+                </div>
+                <h1 class="uppercase text-sm font-medium text-center mt-4"><i
+                        class="ri-checkbox-circle-fill text-black"></i>Interest</h1>
+                <div class="flex justify-center">
+                    <ul class="mt-6 space-y-4">
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-80 py-1 px-2 placeholder-gray-800"
+                                type="text" name="interest1" placeholder="Interest 1" required id="interest1">
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-full py-1 px-2 placeholder-gray-800"
+                                type="text" name="interest2" placeholder="Interest 2" required id="interest2">
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-full py-1 px-2 placeholder-gray-800"
+                                type="text" name="interest3" placeholder="Interest 3" required id="interest3">
+                        </li>
+                        <li>
+                            <input
+                                class="rounded-md border border-2 border-yellowColor outline-none focus:outline-none w-full py-1 px-2 placeholder-gray-800"
+                                required id="interest4" type="text" name="interest4" placeholder="Interest 4">
+                        </li>
+                    </ul>
+                </div>
+                <button class="block mx-auto" type="submit" id="generateresume">Generate Resume</button>
+            </form>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="flex justify-around mt-5">
+            <button class="rounded-md bg-red-400 px-3 py-1 uppercase z-10" id="prebtn">back</button>
+            <button class="rounded-md bg-gray-400 px-3 py-1 uppercase z-10" id="nextbtn">next</button>
+        </div>
+
+
+
+        <h1 class="text-3xl font-extrabold text-center mt-4" id="resutemph1">Resume Templates</h1>
+        <div class="text-center mt-4">
+            <label for="template" class="bg-yellowColor rounded-md p-2">Select Template</label>
+            <select id="template" name="template"
+                class="focus:outline-none border border-gray-500 rounded-md p-2 bg-gray-400">
+                <option value="template1">Template 1</option>
+                <option value="template2">Template 2</option>
+            </select>
+        </div>
+
+        <!-- <div class="text-center mb-3">
+            <button class="font-extrabold uppercase rounded-md p-2 mt-5" id="download-btn" type="submit">Download Resume <i
+                    class="ri-download-fill text-white"></i></button>
+        </div> -->
+
+        <p class="text-center text-gray-500 mt-4">Page 5</p>
+
+    </footer>
+
+    <div id="resume-preview" class="mt-5">
+        <p id="parapreview" class="text-center">Refresh the Page for resume preview</p>
+        <h2 class="font-extrabold text-2xl text-center text-yellowColor">Resume Preview</h2>
+        <div id="resume-template"></div>
+    </div>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> -->
+
+
+    <script>
+
+        // Responsive Menu Button
+        const menu = document.getElementById('menu');
+        const navMenu = document.getElementById('nav-menu');
+        const closeIcon = document.getElementById('nav-close');
+        const navLink = document.querySelectorAll(".nav__link");
+
+        navLink.forEach(link =>
+            link.addEventListener("click", () => {
+                navMenu.classList.add('hidden')
+            })
+        );
+
+        closeIcon.addEventListener("click", () => {
+            navMenu.classList.add('hidden')
+        });
+
+        menu.addEventListener("click", () => {
+            navMenu.classList.remove('hidden')
+        });
+
+        // Page Navigation Link
+
+        const previousPage = "page4.html"
+        const nextPage = "page5.html"
+
+        document.getElementById("prebtn").addEventListener("click", function () {
+            window.location.href = previousPage;
+        })
+
+        document.getElementById("nextbtn").addEventListener("click", function () {
+            window.location.href = nextPage;
+        })
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+    // Retrieve data from localStorage
+
+    // page-1
+    const fname = localStorage.getItem('fname');
+    const lname = localStorage.getItem('lname');
+    const email = localStorage.getItem('email');
+    const phonenumber = localStorage.getItem('phonenumber');
+    const website = localStorage.getItem('website');
+    const github = localStorage.getItem('github');
+    const linkedin = localStorage.getItem('linkedin');
+    const twitter = localStorage.getItem('twitter');
+
+    // page-2
+    const College = localStorage.getItem('College');
+    const year1 = localStorage.getItem('year1');
+    const Qualification = localStorage.getItem('Qualification');
+    const Description = localStorage.getItem('Description');
+    const school = localStorage.getItem('school');
+    const year2 = localStorage.getItem('year2');
+    const qualification = localStorage.getItem('qualification');
+    const description = localStorage.getItem('description');
+
+    // page-3
+    const institute1 = localStorage.getItem('institute1');
+    const position = localStorage.getItem('position');
+    const duration11 = localStorage.getItem('duration11');
+    const description11 = localStorage.getItem('description11');
+    const institute2 = localStorage.getItem('institute2');
+    const position2 = localStorage.getItem('position2');
+    const duration22 = localStorage.getItem('duration22');
+    const description22 = localStorage.getItem('description22');
+
+    // page-4
+    const title1 = localStorage.getItem('title1');
+    const link1 = localStorage.getItem('link1');
+    const description01 = localStorage.getItem('description01');
+    const title2 = localStorage.getItem('title2');
+    const link2 = localStorage.getItem('link2');
+    const description02 = localStorage.getItem('description02');
+
+    // page-5
+    document.getElementById('resumeform5').addEventListener('submit', function (event) {
+        event.preventDefault();  // Prevent form submission
+
+        // Get form values
+        const skill1 = document.getElementById('skill1').value;
+        const skill2 = document.getElementById('skill2').value;
+        const skill3 = document.getElementById('skill3').value;
+        const skill4 = document.getElementById('skill4').value;
+        const skill5 = document.getElementById('skill5').value;
+        const skill6 = document.getElementById('skill6').value;
+        const interest1 = document.getElementById('interest1').value;
+        const interest2 = document.getElementById('interest2').value;
+        const interest3 = document.getElementById('interest3').value;
+        const interest4 = document.getElementById('interest4').value;
+
+        localStorage.setItem('skill1', skill1);
+        localStorage.setItem('skill2', skill2);
+        localStorage.setItem('skill3', skill3);
+        localStorage.setItem('skill4', skill4);
+        localStorage.setItem('skill5', skill5);
+        localStorage.setItem('skill6', skill6);
+        localStorage.setItem('interest1', interest1);
+        localStorage.setItem('interest2', interest2);
+        localStorage.setItem('interest3', interest3);
+        localStorage.setItem('interest4', interest4);
+    });
+
+    const skill1 = localStorage.getItem('skill1');
+    const skill2 = localStorage.getItem('skill2');
+    const skill3 = localStorage.getItem('skill3');
+    const skill4 = localStorage.getItem('skill4');
+    const skill5 = localStorage.getItem('skill5');
+    const skill6 = localStorage.getItem('skill6');
+    const interest1 = localStorage.getItem('interest1');
+    const interest2 = localStorage.getItem('interest2');
+    const interest3 = localStorage.getItem('interest3');
+    const interest4 = localStorage.getItem('interest4');
+
+    const template = document.getElementById('template').value;
+    // Example hard-coded template selection
+
+    // Clear previous resume preview
+    const resumeTemplate = document.getElementById('resume-template');
+    resumeTemplate.innerHTML = '';  // Clear the previous content
+
+    //  localStorage.clear();
+
+    // Check if template is 'template1'
+    if (template === 'template1') {
+        // Generate the resume preview
+        resumeTemplate.innerHTML = `
+      <div class="max-w-4xl mx-auto bg-white p-8 shadow-2xl rounded-lg">
+    <!-- Name and Contact Section -->
+    <section class="border-b-4 border-indigo-500 pb-6 text-center ">
+      <h1 class="text-4xl font-extrabold text-indigo-700 mt-2">${fname} ${lname}</h1>
+      <p class="text-lg text-gray-700">${email} || ${phonenumber}</p>
+    </section>
+
+    <!-- Links Section -->
+  <section class="py-6 border-b border-gray-300">
+  <h3 class="text-2xl font-extrabold text-indigo-600">Links:</h3>
+  <ul class="list-disc list-inside mt-2">
+    <div class="grid grid-cols-2">
+      <li><a href="${website}" class="text-blue-600 hover:text-blue-800 underline">${website}</a></li>
+      <li><a href="${github}" class="text-blue-600 hover:text-blue-800 underline">${github}</a></li>
+      <li><a href="${linkedin}" class="text-blue-600 hover:text-blue-800 underline">${linkedin}</a></li>
+      <li><a href="${twitter}" class="text-blue-600 hover:text-blue-800 underline">${twitter}</a></li>
+    </div>
+  </ul>
+</section>
+
+
+    <!-- Education Section -->
+    <section class="py-6 border-b border-gray-300 mt-2">
+      <h3 class="text-2xl font-extrabold text-indigo-600">Education:-</h3>
+      <div class="mt-2">
+        <p class="font-bold text-lg text-gray-800">${College}</p>
+        <p class="text-gray-600">${Qualification}, ${year1}</p>
+        <p class="text-gray-500 mt-1">${Description}</p>
+      </div>
+      <div class="mt-4">
+        <p class="font-bold text-lg text-gray-800">${school}</p>
+        <p class="text-gray-600">${qualification}, ${year2}</p>
+        <p class="text-gray-500 mt-1">${description}</p>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="py-6 border-b border-gray-300">
+      <h3 class="text-2xl font-extrabold text-indigo-600">Experience:-</h3>
+      <div class="mt-4">
+        <p class="font-bold text-lg text-gray-800">${institute1}</p>
+        <p class="text-gray-600">${position} (${duration11})</p>
+        <p class="text-gray-500 mt-1">${description11}</p>
+      </div>
+      <div class="mt-4">
+        <p class="font-bold text-lg text-gray-800">${institute2}</p>
+        <p class="text-gray-600">${position2} (${duration22})</p>
+        <p class="text-gray-500 mt-1">${description22}</p>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="py-6 border-b border-gray-300">
+      <h3 class="text-2xl font-extrabold text-indigo-600">Projects:-</h3>
+      <div class="mt-4">
+        <p class="font-bold text-lg text-gray-800">${title1}</p>
+        <a href="${link1}" class="text-blue-600 hover:text-blue-800 underline">${link1}</a>
+        <p class="text-gray-500 mt-1">${description01}</p>
+      </div>
+      <div class="mt-4">
+        <p class="font-bold text-lg text-gray-800">${title2}</p>
+        <a href="${link2}" class="text-blue-600 hover:text-blue-800 underline">${link2}</a>
+        <p class="text-gray-500 mt-1">${description02}</p>
+      </div>
+    </section>
+
+    <!-- Skills & Interests Section -->
+    <section class="py-6">
+      <h3 class="text-2xl font-extrabold text-indigo-600 mt-2">Skills & Interests:-</h3>
+      <div class="mt-4">
+        <p class="font-semibold text-gray-200">Skills</p>
+        <p class="text-gray-600">${skill1}, ${skill2}, ${skill3}, ${skill4}, ${skill5}, ${skill6}</p>
+      </div>
+      <div class="mt-4">
+        <p class="font-semibold text-gray-800">Interests</p>
+        <p class="text-gray-600">${interest1}, ${interest2}, ${interest3}, ${interest4}</p>
+      </div>
+    </section>
+  </div>
+
+        `;
+    }else if(template === 'template2'){
+        resumeTemplate.innerHTML = `
+  <div class="max-w-4xl mx-auto bg-gray-50 p-8 shadow-lg rounded-lg grid grid-cols-3 gap-6">
+    <!-- Sidebar (Contact & Links) -->
+    <aside class="bg-indigo-700 text-white p-6 rounded-lg">
+      <!-- Name -->
+      <h1 class="text-4xl font-bold mb-4">${fname} ${lname}</h1>
+      <!-- Contact -->
+      <p class="text-lg mb-2"><span class="font-semibold">Email:</span> ${email}</p>
+      <p class="text-lg mb-4"><span class="font-semibold">Phone:</span> ${phonenumber}</p>
+
+      <!-- Links Section -->
+      <h3 class="text-2xl font-bold mb-4">Links</h3>
+      <ul class="space-y-2">
+        <li><a href="${website}" class="hover:underline">${website}</a></li>
+        <li><a href="${github}" class="hover:underline">${github}</a></li>
+        <li><a href="${linkedin}" class="hover:underline">${linkedin}</a></li>
+        <li><a href="${twitter}" class="hover:underline">${twitter}</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content (Education, Experience, Projects, Skills & Interests) -->
+    <main class="col-span-2">
+      <!-- Education Section -->
+      <section class="mb-6">
+        <h2 class="text-2xl font-bold text-indigo-600">Education</h2>
+        <div class="mt-4">
+          <p class="font-semibold text-gray-800">${College} <span class="text-gray-600">(${year1})</span></p>
+          <p class="text-gray-600">${Qualification}</p>
+          <p class="text-gray-500">${Description}</p>
+        </div>
+        <div class="mt-4">
+          <p class="font-semibold text-gray-800">${school} <span class="text-gray-600">(${year2})</span></p>
+          <p class="text-gray-600">${qualification}</p>
+          <p class="text-gray-500">${description}</p>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section class="mb-6">
+        <h2 class="text-2xl font-bold text-indigo-600">Experience</h2>
+        <div class="mt-4">
+          <p class="font-semibold text-gray-800">${institute1} <span class="text-gray-600">(${duration11})</span></p>
+          <p class="text-gray-600">${position}</p>
+          <p class="text-gray-500">${description11}</p>
+        </div>
+        <div class="mt-4">
+          <p class="font-semibold text-gray-800">${institute2} <span class="text-gray-600">(${duration22})</span></p>
+          <p class="text-gray-600">${position2}</p>
+          <p class="text-gray-500">${description22}</p>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section class="mb-6">
+        <h2 class="text-2xl font-bold text-indigo-600">Projects</h2>
+        <div class="mt-4">
+          <p class="font-semibold text-gray-800">${title1}</p>
+          <a href="${link1}" class="text-indigo-600 hover:underline">${link1}</a>
+          <p class="text-gray-500">${description01}</p>
+        </div>
+        <div class="mt-4">
+          <p class="font-semibold text-gray-800">${title2}</p>
+          <a href="${link2}" class="text-indigo-600 hover:underline">${link2}</a>
+          <p class="text-gray-500">${description02}</p>
+        </div>
+      </section>
+
+      <!-- Skills & Interests Section -->
+      <section class="mb-6">
+        <h2 class="text-2xl font-bold text-indigo-600">Skills & Interests</h2>
+        <div class="mt-4">
+          <p class="font-semibold text-gray-800">Skills</p>
+          <p class="text-gray-600">${skill1}, ${skill2}, ${skill3}, ${skill4}, ${skill5}, ${skill6}</p>
+        </div>
+        <div class="mt-4">
+          <p class="font-semibold text-gray-800">Interests:</p>
+          <p class="text-gray-600">${interest1}, ${interest2}, ${interest3}, ${interest4}</p>
+        </div>
+      </section>
+    </main>
+  </div>
+`;
+    }
+    // document.getElementById('download-btn').addEventListener('click', function() {
+    // const { jsPDF } = window.jspdf;
+    // const doc = new jsPDF();
+
+    // Ensure resumeTemplate is defined
+    // const resumeTemplate = document.getElementById('resumeTemplate'); // Adjust the ID as necessary
+    // if (!resumeTemplate) {
+    //     console.error("resumeTemplate element not found");
+    //     return;
+    // }
+
+    // Generate the resume content for the PDF
+    // const resumeContent = resumeTemplate.innerHTML; // Get content from resume template
+    // console.log(resumeContent);
+
+    // Add content to PDF
+    // doc.html(resumeContent, {
+    //     callback: function(doc) {
+    //         doc.save('resume.pdf'); // Save the PDF
+    //     },
+    //     x: 10,
+    //     y: 10
+    // });
+});
+
+// });
+    </script>
+
+
+</body>
+
+</html>
